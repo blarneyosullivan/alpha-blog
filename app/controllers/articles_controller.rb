@@ -4,6 +4,12 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
   
+  def edit
+    @article = Article.find(params[:id])
+    
+  end
+  
+  
   def create
     #this will be used to test and render whats in params
     #render plain: params[:article].inspect
@@ -26,9 +32,24 @@ class ArticlesController < ApplicationController
     
   end
   
+  def update
+    @article = Article.find(params[:id])
+  
+    if @article.update(article_params)
+      flash[:notice] = "article updated"
+      redirect_to article_path(@article)
+    else
+      render 'edit'
+    end
+    
+  end
+  
+  
   def show
     @article = Article.find(params[:id])
   end
+  
+  
   
   
   private 
