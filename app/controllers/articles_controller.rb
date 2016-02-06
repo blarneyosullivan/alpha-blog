@@ -22,8 +22,10 @@ class ArticlesController < ApplicationController
     
     #need to whitelist params
     #so create helper method
-    @article = Article.new(article_params)
     
+    #debugger
+    @article = Article.new(article_params)
+    @article.user = User.first
     #@article.save
     
     #redirect_to articles_show(@article)
