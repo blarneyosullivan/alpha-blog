@@ -13,8 +13,18 @@ Rails.application.routes.draw do
   # get 'pages/home', to: 'pages#home'
   # get 'pages/about', to: 'pages#about'
   
-  
+  # auto generates routs
   resources :articles
+  
+  
+  
+  #manual route ie new signup form
+  get 'signup', to: 'users#new'
+  #create actions manually
+  #get 'users', to: 'users#create'
+  
+  resources :users, except: [:new]
+  
   
   
   # Example of named route that can be invoked with purchase_url(id: product.id)
