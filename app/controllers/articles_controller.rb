@@ -30,8 +30,8 @@ class ArticlesController < ApplicationController
     
     #debugger
     @article = Article.new(article_params)
-    #@article.user = User.last
-    @article.user = current_user
+    @article.user = User.last
+    #@article.user = current_user
     #@article.save
     
     #redirect_to articles_show(@article)
