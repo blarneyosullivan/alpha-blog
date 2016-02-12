@@ -83,4 +83,11 @@ class ArticlesController < ApplicationController
       @article = Article.find(params[:id])
     end
   
+  def require_same_user
+    if current_user != @article.user and !current_user.admin?
+      flash[:danger] = "you can only update your own articles"
+      redirect_to root_path
+    end
+  end
+
 end
